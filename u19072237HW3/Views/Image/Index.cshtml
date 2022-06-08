@@ -1,0 +1,49 @@
+﻿@*model IEnumerable<u19072237HW3.Models.FileModel>*@
+@using u19072237HW3.Models
+@model List<FileModel>
+
+
+@{
+    ViewBag.Title = "Uploaded Images";
+}
+
+<h5>Images</h5>
+
+
+ <style type="text/css">
+     .row{
+            float: left;
+            margin: 20px;
+            padding: 1px;
+            border-radius: 5px; 
+            
+        }
+     
+
+
+ </style>
+ <body style="background-color:darksalmon">
+     <div class="container">
+
+         @foreach (FileModel file in Model)
+         {
+
+             <div class="row">
+                 <div class="col">
+                     <a class="fancybox" href="~/Media/Images/@file.FileName">
+                         <img class="img-responsive" src="~/Media/Images/@file.FileName" style="width: 250px; height: 200px;" />
+                     </a>
+                     <br />
+                     <p>@file.FileName</p>
+                     <button type="button" class="btn btn-dark">
+                         @Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName })
+                     </button>
+                     <button type="button" class="btn btn-dark">
+                         @Html.ActionLink("DELETE", "DeleteFile", new { fileName = file.FileName }, new { onclick = "return confirm('Are you sure you wish to delete this?');" })
+                     </button>
+                 </div>
+             </div>
+         }
+     </div>
+ </body>
+

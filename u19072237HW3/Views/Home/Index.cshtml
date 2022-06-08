@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="well-sm">
+    <h3>Media Upload</h3>
+    <h6>Application for uploading/downloading videos</h6>
+</div>
+
+<br />
+
+<div class="container-fluid" style="background-color: burlywood">
+    <p>
+        This platform is a media uploading and downloading application.
+        It allows the user to uploed files to the server and allows for downloading of the files from the server.
+        This App contains 4 pages, the Home page where the user will upoad files, the About page containing a biography,
+        the video page where the videos uploaded will be displayed with an option for downloding and deleting,
+        the file page where the files uploaded will be displayed with an option for downloding and deleting,
+        the image page where the images uploaded will be displayes with an option for downloding and deleting.
+    </p>
+
+    <div class="well-sm">
+        <div class="form-horizontal">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+            {
+              <div class="container" style="background-color:antiquewhite; width:60%; padding:20px; border-radius: 10px">
+                <input type="radio" name="Type" value="Documents" >
+                <label for="doc">Document</label><br>
+                <input type="radio" name="Type" value="Images">
+                <label for="img">Image</label><br>
+                <input type="radio" name="Type" value="Videos">
+                <label for="video">Video</label>
+                <br />
+                 @Html.TextBox("file", "", new { type = "file" })
+                <br />
+                <input type="submit" value="submit" /></div>
+              
+            }
+        </div>
+        <br />
+    </div>
+
+
+</div>
+

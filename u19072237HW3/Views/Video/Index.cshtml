@@ -1,0 +1,46 @@
+﻿@*model IEnumerable<u19072237HW3.Models.FileModel>*@
+@using u19072237HW3.Models
+@model List<FileModel>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Video Files</h2>
+<br />
+
+<style type="text/css">
+    .row {
+        float: left;
+        margin: 20px;
+        padding: 1px;
+        border-radius: 5px;
+    }
+</style>
+<body style="background-color:darksalmon">
+    <div class="container">
+
+        @foreach (FileModel file in Model)
+        {
+
+            <div class="row">
+                <div class="col">
+                    <a class="fancybox" href="~/Media/Videos/@file.FileName">
+                        <video width="320" height="240" controls>
+                            <source src="~/Media/Videos/@file.FileName" type="video/mp4">
+                        </video>
+                    </a>
+                    <br />
+                    <p>@file.FileName</p>
+                    <button type="button" class="btn btn-dark">
+                        @Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName })
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                        @Html.ActionLink("DELETE", "DeleteFile", new { fileName = file.FileName }, new { onclick = "return confirm('Are you sure you wish to delete this?');" })
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</body>
