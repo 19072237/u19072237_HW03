@@ -7,7 +7,9 @@
     ViewBag.Title = "Uploaded Images";
 }
 
-<h5>Images</h5>
+<h4>Images</h4>
+<h5>This page shows the pictures uploaded by the user with options to delete and download</h5>
+<br />
 
 
  <style type="text/css">
@@ -35,8 +37,8 @@
                      </a>
                      <br />
                      <p>@file.FileName</p>
-                     <button type="button" class="btn btn-dark">
-                         @Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName })
+                     <button type="button" class="btn btn-warning">
+                         @Html.ActionLink("DOWNLOAD", "DownloadFile", new { fileName = file.FileName })
                      </button>
                      <button type="button" class="btn btn-dark">
                          @Html.ActionLink("DELETE", "DeleteFile", new { fileName = file.FileName }, new { onclick = "return confirm('Are you sure you wish to delete this?');" })

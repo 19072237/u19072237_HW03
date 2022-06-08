@@ -7,7 +7,8 @@
     ViewBag.Title = "Files";
 }
 
-<h5>Uploaded Documents</h5><br />
+<h4>Uploaded Documents</h4><br />
+<h6>The table below displays the files uploadedy the user with options of deleting and downloading.</h6><br />
 
 <div class="container">
    
@@ -26,12 +27,12 @@
                 <tr>
                     <td>@file.FileName</td>
                     <td>
-                        <button>
+                        <button class="btn btn-warning">
                             @Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName })
                         </button>
                     </td>
                     <td>
-                        <button>
+                        <button class="btn btn-dark">
                             @Html.ActionLink("DELETE", "DeleteFile", new { fileName = file.FileName }, new { onclick = "return confirm('Are you sure you wish to delete this?');" })
                         </button>
                     </td>
